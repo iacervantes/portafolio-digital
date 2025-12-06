@@ -17,7 +17,7 @@ const certifications = [
     name: 'Azure Data Engineer Associate',
     issuer: 'Microsoft',
     date: 'Marzo 2024',
-    logo: 'https://images.credly.com/images/61542181-0e8d-496c-a17c-3d4bf590eda1/image.png',
+    logo: 'https://www.datahai.co.uk/wp-content/uploads/2021/05/azure-data-engineer-associate-600x600-1.png',
     credential: 'https://www.credly.com/badges/example',
     color: 'from-blue-500 to-cyan-400',
   },
