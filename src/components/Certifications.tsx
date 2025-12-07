@@ -44,7 +44,7 @@ const certifications = [
     name: 'TensorFlow Developer Certificate',
     issuer: 'Google',
     date: 'Noviembre 2023',
-    logo: 'https://images.credly.com/images/45571506-2705-4f2f-ae28-29109a4f2f55/image.png',
+    logo: 'https://www.thetestspecimen.com/img/tensorflow-certificate/tensorflow-badge-1920w.png',
     credential: 'https://www.credly.com/badges/example',
     color: 'from-orange-500 to-yellow-400',
   },
