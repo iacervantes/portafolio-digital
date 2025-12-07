@@ -25,10 +25,9 @@ export const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Close mobile menu on resize to desktop
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth >= 1024) {
+      if (window.innerWidth >= 768) {
         setIsMobileMenuOpen(false);
       }
     };
@@ -36,7 +35,6 @@ export const Header = () => {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  // Prevent body scroll when menu is open
   useEffect(() => {
     if (isMobileMenuOpen) {
       document.body.style.overflow = 'hidden';
@@ -74,10 +72,10 @@ export const Header = () => {
         animate={{ y: 0 }}
         transition={{ duration: 0.5 }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          isScrolled ? 'glass py-2 sm:py-3' : 'bg-transparent py-3 sm:py-4 md:py-5'
+          isScrolled ? 'glass py-3' : 'bg-transparent py-4'
         }`}
       >
-        <div className="container mx-auto px-4 sm:px-6 flex items-center justify-between">
+        <div className="container mx-auto px-4 flex items-center justify-between">
           {/* Logo */}
           <motion.a
             href="#inicio"
@@ -85,7 +83,7 @@ export const Header = () => {
               e.preventDefault();
               handleNavClick('#inicio');
             }}
-            className="text-lg sm:text-xl md:text-2xl font-display font-bold gradient-text z-50"
+            className="text-xl md:text-2xl font-display font-bold gradient-text relative z-[60]"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
@@ -93,12 +91,12 @@ export const Header = () => {
           </motion.a>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-1">
+          <nav className="hidden md:flex items-center gap-1">
             {navLinks.map((link, index) => (
               <motion.button
                 key={link.name}
                 onClick={() => handleNavClick(link.href)}
-                className="px-4 py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors relative group"
+                className="px-3 lg:px-4 py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors relative group"
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
@@ -110,102 +108,86 @@ export const Header = () => {
           </nav>
 
           {/* Actions */}
-          <div className="flex items-center gap-1 sm:gap-2 md:gap-3">
+          <div className="flex items-center gap-2">
             <motion.button
               onClick={toggleTheme}
-              className="p-2 rounded-lg hover:bg-secondary transition-colors"
+              className="p-2 rounded-lg hover:bg-secondary transition-colors relative z-[60]"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
               aria-label="Cambiar tema"
             >
-              {isDark ? <Sun size={18} className="sm:w-5 sm:h-5" /> : <Moon size={18} className="sm:w-5 sm:h-5" />}
+              {isDark ? <Sun size={20} /> : <Moon size={20} />}
             </motion.button>
 
             <Button
               variant="gradient"
               size="sm"
-              className="hidden md:flex"
+              className="hidden lg:flex"
               onClick={handleDownloadCV}
             >
               <Download size={16} />
-              <span className="hidden sm:inline">Descargar CV</span>
+              Descargar CV
             </Button>
 
-            {/* Mobile Menu Button */}
+            {/* Mobile Menu Button - Always visible on mobile */}
             <motion.button
-              className="lg:hidden p-1.5 sm:p-2 rounded-lg hover:bg-secondary transition-colors z-50"
+              className="md:hidden p-2 rounded-lg hover:bg-secondary transition-colors relative z-[60]"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
               aria-label={isMobileMenuOpen ? 'Cerrar menú' : 'Abrir menú'}
             >
-              {isMobileMenuOpen ? <X size={22} className="sm:w-6 sm:h-6" /> : <Menu size={22} className="sm:w-6 sm:h-6" />}
+              {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </motion.button>
           </div>
         </div>
       </motion.header>
 
-      {/* Mobile Menu Overlay */}
+      {/* Mobile Menu - Fullscreen Overlay */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.2 }}
-            className="fixed inset-0 z-40 lg:hidden"
+            transition={{ duration: 0.3 }}
+            className="fixed inset-0 z-[55] md:hidden bg-background/98 backdrop-blur-xl"
           >
-            {/* Backdrop */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              className="absolute inset-0 bg-background/90 backdrop-blur-md"
-              onClick={() => setIsMobileMenuOpen(false)}
-            />
-            
-            {/* Menu Panel */}
-            <motion.nav
-              initial={{ x: '100%' }}
-              animate={{ x: 0 }}
-              exit={{ x: '100%' }}
-              transition={{ type: 'spring', damping: 30, stiffness: 300 }}
-              className="absolute right-0 top-0 bottom-0 w-full max-w-[300px] bg-card/95 backdrop-blur-lg p-6 pt-24 shadow-2xl border-l border-border/50"
-            >
-              <div className="flex flex-col gap-2">
+            <div className="flex flex-col items-center justify-center min-h-screen px-6 py-20">
+              <nav className="flex flex-col items-center gap-4 w-full max-w-xs">
                 {navLinks.map((link, index) => (
                   <motion.button
                     key={link.name}
                     onClick={() => handleNavClick(link.href)}
-                    className="text-left px-4 py-3 text-lg font-medium text-muted-foreground hover:text-foreground hover:bg-secondary/50 rounded-lg transition-colors"
-                    initial={{ opacity: 0, x: 20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: index * 0.05 + 0.1 }}
+                    className="w-full text-center py-4 text-xl font-medium text-muted-foreground hover:text-foreground hover:bg-secondary/50 rounded-xl transition-all"
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: index * 0.08 }}
                   >
                     {link.name}
                   </motion.button>
                 ))}
-                <motion.div 
-                  className="mt-6 pt-6 border-t border-border"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.4 }}
+              </nav>
+              
+              <motion.div 
+                className="mt-8 w-full max-w-xs"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.5 }}
+              >
+                <Button 
+                  variant="gradient" 
+                  className="w-full" 
+                  size="lg"
+                  onClick={() => {
+                    handleDownloadCV();
+                    setIsMobileMenuOpen(false);
+                  }}
                 >
-                  <Button 
-                    variant="gradient" 
-                    className="w-full" 
-                    size="lg"
-                    onClick={() => {
-                      handleDownloadCV();
-                      setIsMobileMenuOpen(false);
-                    }}
-                  >
-                    <Download size={18} />
-                    Descargar CV
-                  </Button>
-                </motion.div>
-              </div>
-            </motion.nav>
+                  <Download size={18} />
+                  Descargar CV
+                </Button>
+              </motion.div>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
