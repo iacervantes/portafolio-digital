@@ -35,7 +35,7 @@ const certifications = [
     name: 'Google Cloud Professional Data Engineer',
     issuer: 'Google Cloud',
     date: 'Diciembre 2023',
-    logo: 'https://images.credly.com/images/2d613ff8-8879-430b-b1d2-52ad5d3463fc/image.png',
+    logo: 'https://www.cloudassistsvcs.com/wp-content/uploads/2022/07/google-data-engineer-logo.png',
     credential: 'https://www.credly.com/badges/example',
     color: 'from-blue-400 to-green-400',
   },
