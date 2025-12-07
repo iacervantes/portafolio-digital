@@ -53,7 +53,7 @@ const certifications = [
     name: 'Snowflake SnowPro Core',
     issuer: 'Snowflake',
     date: 'Octubre 2023',
-    logo: 'https://images.credly.com/images/aeb12da3-5fc7-4b42-aa42-c60e33a9bde3/image.png',
+    logo: 'https://img-c.udemycdn.com/open-badges/v2/badge-class/1529286954/SnowProCoreTM6007515649034834097820.png',
     credential: 'https://www.credly.com/badges/example',
     color: 'from-cyan-400 to-blue-500',
   },
