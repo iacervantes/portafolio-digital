@@ -37,7 +37,7 @@ export const Hero = () => {
   const [particles, setParticles] = useState<number[]>([]);
 
   useEffect(() => {
-    setParticles(Array.from({ length: 20 }, (_, i) => i));
+    setParticles(Array.from({ length: 15 }, (_, i) => i));
   }, []);
 
   const scrollToAbout = () => {
@@ -50,12 +50,12 @@ export const Hero = () => {
   return (
     <section
       id="inicio"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden px-4 pt-20 pb-16"
     >
       {/* Background Effects */}
-      <div className="absolute inset-0 bg-grid opacity-30" />
-      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-3xl" />
-      <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-accent/20 rounded-full blur-3xl" />
+      <div className="absolute inset-0 bg-grid opacity-20" />
+      <div className="absolute top-1/4 left-0 w-64 h-64 md:w-96 md:h-96 bg-primary/15 rounded-full blur-3xl" />
+      <div className="absolute bottom-1/4 right-0 w-64 h-64 md:w-96 md:h-96 bg-accent/15 rounded-full blur-3xl" />
       
       {/* Particles */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -64,33 +64,33 @@ export const Hero = () => {
         ))}
       </div>
 
-      <div className="container mx-auto px-4 sm:px-6 relative z-10">
-        <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-20">
-          {/* Profile Photo - Mobile: First, Desktop: Last */}
+      <div className="container mx-auto relative z-10">
+        <div className="flex flex-col items-center text-center">
+          {/* Profile Photo - Always on top for mobile */}
           <motion.div
-            className="flex-shrink-0 order-first lg:order-last"
+            className="mb-6 md:mb-8"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
+            transition={{ duration: 0.6 }}
           >
-            <div className="relative">
+            <div className="relative inline-block">
               {/* Animated ring */}
               <motion.div
-                className="absolute -inset-2 rounded-full bg-gradient-to-r from-primary via-accent to-primary opacity-75 blur-sm"
+                className="absolute -inset-1.5 md:-inset-2 rounded-full bg-gradient-to-r from-primary via-accent to-primary opacity-75 blur-sm"
                 animate={{ rotate: 360 }}
                 transition={{ duration: 8, repeat: Infinity, ease: 'linear' }}
               />
-              <div className="relative w-40 h-40 sm:w-56 sm:h-56 md:w-72 md:h-72 lg:w-80 lg:h-80 rounded-full overflow-hidden border-4 border-background">
+              <div className="relative w-32 h-32 sm:w-40 sm:h-40 md:w-52 md:h-52 lg:w-64 lg:h-64 rounded-full overflow-hidden border-4 border-background">
                 <img
                   src={profilePhoto}
                   alt="Italo Cervantes Prieto - Data Architect & AI Specialist"
                   className="w-full h-full object-cover"
                 />
               </div>
-              {/* Floating badges */}
+              {/* Floating badge */}
               <motion.div
-                className="absolute -top-2 -right-2 sm:-top-4 sm:-right-4 px-3 py-1.5 sm:px-4 sm:py-2 glass rounded-full text-xs sm:text-sm font-medium"
-                animate={{ y: [0, -10, 0] }}
+                className="absolute -top-1 -right-1 md:-top-2 md:-right-2 px-2 py-1 md:px-3 md:py-1.5 glass rounded-full text-xs font-medium whitespace-nowrap"
+                animate={{ y: [0, -8, 0] }}
                 transition={{ duration: 3, repeat: Infinity }}
               >
                 🚀 Open to Work
@@ -100,28 +100,28 @@ export const Hero = () => {
 
           {/* Text Content */}
           <motion.div
-            className="flex-1 text-center lg:text-left"
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
+            className="max-w-2xl"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
           >
             <motion.p
-              className="text-accent font-medium mb-3 sm:mb-4 text-sm sm:text-base"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
+              className="text-accent font-medium mb-3 text-sm md:text-base"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.3 }}
             >
               ¡Bienvenido a mi portafolio!
             </motion.p>
 
-            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-display font-bold mb-3 sm:mb-4 md:mb-6 leading-tight">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display font-bold mb-3 md:mb-4 leading-tight">
               <TypeAnimation
                 sequence={[
                   'Hola, soy',
-                  1000,
+                  800,
                   'Hola, soy Italo',
-                  500,
-                  'Hola, soy Italo Cervantes Prieto',
+                  400,
+                  'Hola, soy Italo Cervantes',
                   2000,
                 ]}
                 wrapper="span"
@@ -132,7 +132,7 @@ export const Hero = () => {
             </h1>
 
             <motion.h2
-              className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl gradient-text font-semibold mb-3 sm:mb-4 md:mb-6"
+              className="text-base sm:text-lg md:text-xl lg:text-2xl gradient-text font-semibold mb-4 md:mb-5"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.5 }}
@@ -141,21 +141,21 @@ export const Hero = () => {
             </motion.h2>
 
             <motion.p
-              className="text-sm sm:text-base md:text-lg text-muted-foreground mb-5 sm:mb-6 md:mb-8 max-w-xl mx-auto lg:mx-0"
+              className="text-sm sm:text-base md:text-lg text-muted-foreground mb-6 md:mb-8 max-w-lg mx-auto"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ delay: 0.7 }}
+              transition={{ delay: 0.6 }}
             >
               Arquitecto de Datos especializado en Data Governance. Transformo datos en decisiones estratégicas 
-              utilizando tecnologías cloud y soluciones de IA de vanguardia.
+              con tecnologías cloud e IA.
             </motion.p>
 
             {/* CTA Buttons */}
             <motion.div
-              className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start mb-6 sm:mb-8"
+              className="flex flex-col sm:flex-row gap-3 justify-center mb-6 md:mb-8"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.9 }}
+              transition={{ delay: 0.7 }}
             >
               <Button
                 variant="gradient"
@@ -173,10 +173,10 @@ export const Hero = () => {
 
             {/* Social Links */}
             <motion.div
-              className="flex gap-3 sm:gap-4 justify-center lg:justify-start"
+              className="flex gap-4 justify-center"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ delay: 1.1 }}
+              transition={{ delay: 0.8 }}
             >
               {[
                 { icon: Linkedin, href: 'https://www.linkedin.com/in/italo-cervantes-prieto/', label: 'LinkedIn' },
@@ -188,12 +188,12 @@ export const Hero = () => {
                   href={href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2.5 sm:p-3 rounded-full glass hover:bg-primary/20 transition-all duration-300 group"
+                  className="p-3 rounded-full glass hover:bg-primary/20 transition-all duration-300 group"
                   whileHover={{ scale: 1.1, y: -2 }}
                   whileTap={{ scale: 0.95 }}
                   aria-label={label}
                 >
-                  <Icon size={20} className="text-muted-foreground group-hover:text-primary transition-colors sm:w-[22px] sm:h-[22px]" />
+                  <Icon size={22} className="text-muted-foreground group-hover:text-primary transition-colors" />
                 </motion.a>
               ))}
             </motion.div>
@@ -203,17 +203,17 @@ export const Hero = () => {
         {/* Scroll Indicator */}
         <motion.button
           onClick={scrollToAbout}
-          className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
+          className="absolute bottom-4 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 1.3 }}
+          transition={{ delay: 1 }}
         >
-          <span className="text-sm">Scroll</span>
+          <span className="text-xs md:text-sm">Scroll</span>
           <motion.div
-            animate={{ y: [0, 8, 0] }}
+            animate={{ y: [0, 6, 0] }}
             transition={{ duration: 1.5, repeat: Infinity }}
           >
-            <ArrowDown size={24} />
+            <ArrowDown size={20} />
           </motion.div>
         </motion.button>
       </div>
