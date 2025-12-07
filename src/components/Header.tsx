@@ -25,6 +25,29 @@ export const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Close mobile menu on resize to desktop
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 1024) {
+        setIsMobileMenuOpen(false);
+      }
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  // Prevent body scroll when menu is open
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isMobileMenuOpen]);
+
   const toggleTheme = () => {
     setIsDark(!isDark);
     document.documentElement.classList.toggle('light');
@@ -32,10 +55,16 @@ export const Header = () => {
 
   const handleNavClick = (href: string) => {
     setIsMobileMenuOpen(false);
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
+    setTimeout(() => {
+      const element = document.querySelector(href);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, 100);
+  };
+
+  const handleDownloadCV = () => {
+    window.open('/cv-italo-cervantes.pdf', '_blank');
   };
 
   return (
@@ -45,14 +74,18 @@ export const Header = () => {
         animate={{ y: 0 }}
         transition={{ duration: 0.5 }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          isScrolled ? 'glass py-3' : 'bg-transparent py-5'
+          isScrolled ? 'glass py-3' : 'bg-transparent py-4 md:py-5'
         }`}
       >
         <div className="container mx-auto px-4 flex items-center justify-between">
           {/* Logo */}
           <motion.a
             href="#inicio"
-            className="text-xl md:text-2xl font-display font-bold gradient-text"
+            onClick={(e) => {
+              e.preventDefault();
+              handleNavClick('#inicio');
+            }}
+            className="text-xl md:text-2xl font-display font-bold gradient-text z-50"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
@@ -77,12 +110,13 @@ export const Header = () => {
           </nav>
 
           {/* Actions */}
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2 md:gap-3">
             <motion.button
               onClick={toggleTheme}
               className="p-2 rounded-lg hover:bg-secondary transition-colors"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
+              aria-label="Cambiar tema"
             >
               {isDark ? <Sun size={20} /> : <Moon size={20} />}
             </motion.button>
@@ -91,18 +125,19 @@ export const Header = () => {
               variant="gradient"
               size="sm"
               className="hidden md:flex"
-              onClick={() => window.open('/cv-italo-cervantes.pdf', '_blank')}
+              onClick={handleDownloadCV}
             >
               <Download size={16} />
-              Descargar CV
+              <span className="hidden sm:inline">Descargar CV</span>
             </Button>
 
             {/* Mobile Menu Button */}
             <motion.button
-              className="lg:hidden p-2 rounded-lg hover:bg-secondary transition-colors"
+              className="lg:hidden p-2 rounded-lg hover:bg-secondary transition-colors z-50"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
+              aria-label={isMobileMenuOpen ? 'Cerrar menú' : 'Abrir menú'}
             >
               {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </motion.button>
@@ -117,38 +152,58 @@ export const Header = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
             className="fixed inset-0 z-40 lg:hidden"
           >
-            <div
-              className="absolute inset-0 bg-background/80 backdrop-blur-sm"
+            {/* Backdrop */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="absolute inset-0 bg-background/90 backdrop-blur-md"
               onClick={() => setIsMobileMenuOpen(false)}
             />
+            
+            {/* Menu Panel */}
             <motion.nav
               initial={{ x: '100%' }}
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
-              transition={{ type: 'spring', damping: 25 }}
-              className="absolute right-0 top-0 bottom-0 w-[280px] bg-card p-6 pt-20 shadow-2xl"
+              transition={{ type: 'spring', damping: 30, stiffness: 300 }}
+              className="absolute right-0 top-0 bottom-0 w-full max-w-[300px] bg-card/95 backdrop-blur-lg p-6 pt-24 shadow-2xl border-l border-border/50"
             >
               <div className="flex flex-col gap-2">
                 {navLinks.map((link, index) => (
                   <motion.button
                     key={link.name}
                     onClick={() => handleNavClick(link.href)}
-                    className="text-left px-4 py-3 text-lg font-medium text-muted-foreground hover:text-foreground hover:bg-secondary rounded-lg transition-colors"
+                    className="text-left px-4 py-3 text-lg font-medium text-muted-foreground hover:text-foreground hover:bg-secondary/50 rounded-lg transition-colors"
                     initial={{ opacity: 0, x: 20 }}
                     animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: index * 0.1 }}
+                    transition={{ delay: index * 0.05 + 0.1 }}
                   >
                     {link.name}
                   </motion.button>
                 ))}
-                <div className="mt-4 pt-4 border-t border-border">
-                  <Button variant="gradient" className="w-full" size="lg">
+                <motion.div 
+                  className="mt-6 pt-6 border-t border-border"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.4 }}
+                >
+                  <Button 
+                    variant="gradient" 
+                    className="w-full" 
+                    size="lg"
+                    onClick={() => {
+                      handleDownloadCV();
+                      setIsMobileMenuOpen(false);
+                    }}
+                  >
                     <Download size={18} />
                     Descargar CV
                   </Button>
-                </div>
+                </motion.div>
               </div>
             </motion.nav>
           </motion.div>

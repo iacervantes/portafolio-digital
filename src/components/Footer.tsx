@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { ArrowUp, Linkedin, Github, Mail, Heart, Coffee } from 'lucide-react';
 
 const socialLinks = [
-  { icon: Linkedin, href: 'https://linkedin.com/in/italocervantes', label: 'LinkedIn' },
+  { icon: Linkedin, href: 'https://www.linkedin.com/in/italo-cervantes-prieto/', label: 'LinkedIn' },
   { icon: Github, href: 'https://github.com/italocervantes', label: 'GitHub' },
   { icon: Mail, href: 'mailto:italo.cervantes@example.com', label: 'Email' },
 ];
@@ -42,7 +42,7 @@ export const Footer = () => {
               IC<span className="text-accent">.</span>
             </a>
             <p className="text-muted-foreground mb-6 max-w-xs">
-              Data Engineer & AI Specialist transformando datos en decisiones estratégicas.
+              Data Architect especializado en Data Governance, transformando datos en decisiones estratégicas.
             </p>
             <div className="flex gap-3">
               {socialLinks.map(({ icon: Icon, href, label }) => (
