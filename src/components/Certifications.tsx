@@ -26,7 +26,7 @@ const certifications = [
     name: 'Databricks Certified Data Engineer',
     issuer: 'Databricks',
     date: 'Febrero 2024',
-    logo: 'https://images.credly.com/images/08096465-78df-4fea-ad9e-e27ee5d07416/image.png',
+    logo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1HU497LXHjoNf9vj9oblPFk4ZBzChIrYr4Q&s',
     credential: 'https://www.credly.com/badges/example',
     color: 'from-red-500 to-orange-500',
   },
