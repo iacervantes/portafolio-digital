@@ -64,8 +64,40 @@ export const Hero = () => {
         ))}
       </div>
 
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+      <div className="container mx-auto px-4 sm:px-6 relative z-10">
+        <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-20">
+          {/* Profile Photo - Mobile: First, Desktop: Last */}
+          <motion.div
+            className="flex-shrink-0 order-first lg:order-last"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+          >
+            <div className="relative">
+              {/* Animated ring */}
+              <motion.div
+                className="absolute -inset-2 rounded-full bg-gradient-to-r from-primary via-accent to-primary opacity-75 blur-sm"
+                animate={{ rotate: 360 }}
+                transition={{ duration: 8, repeat: Infinity, ease: 'linear' }}
+              />
+              <div className="relative w-40 h-40 sm:w-56 sm:h-56 md:w-72 md:h-72 lg:w-80 lg:h-80 rounded-full overflow-hidden border-4 border-background">
+                <img
+                  src={profilePhoto}
+                  alt="Italo Cervantes Prieto - Data Architect & AI Specialist"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              {/* Floating badges */}
+              <motion.div
+                className="absolute -top-2 -right-2 sm:-top-4 sm:-right-4 px-3 py-1.5 sm:px-4 sm:py-2 glass rounded-full text-xs sm:text-sm font-medium"
+                animate={{ y: [0, -10, 0] }}
+                transition={{ duration: 3, repeat: Infinity }}
+              >
+                🚀 Open to Work
+              </motion.div>
+            </div>
+          </motion.div>
+
           {/* Text Content */}
           <motion.div
             className="flex-1 text-center lg:text-left"
@@ -74,7 +106,7 @@ export const Hero = () => {
             transition={{ duration: 0.8 }}
           >
             <motion.p
-              className="text-accent font-medium mb-4"
+              className="text-accent font-medium mb-3 sm:mb-4 text-sm sm:text-base"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
@@ -82,7 +114,7 @@ export const Hero = () => {
               ¡Bienvenido a mi portafolio!
             </motion.p>
 
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-4 md:mb-6 leading-tight">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-display font-bold mb-3 sm:mb-4 md:mb-6 leading-tight">
               <TypeAnimation
                 sequence={[
                   'Hola, soy',
@@ -100,7 +132,7 @@ export const Hero = () => {
             </h1>
 
             <motion.h2
-              className="text-lg sm:text-xl md:text-2xl lg:text-3xl gradient-text font-semibold mb-4 md:mb-6"
+              className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl gradient-text font-semibold mb-3 sm:mb-4 md:mb-6"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.5 }}
@@ -109,7 +141,7 @@ export const Hero = () => {
             </motion.h2>
 
             <motion.p
-              className="text-base md:text-lg text-muted-foreground mb-6 md:mb-8 max-w-xl mx-auto lg:mx-0"
+              className="text-sm sm:text-base md:text-lg text-muted-foreground mb-5 sm:mb-6 md:mb-8 max-w-xl mx-auto lg:mx-0"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.7 }}
@@ -120,27 +152,28 @@ export const Hero = () => {
 
             {/* CTA Buttons */}
             <motion.div
-              className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-8"
+              className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start mb-6 sm:mb-8"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.9 }}
             >
               <Button
                 variant="gradient"
-                size="xl"
+                size="lg"
+                className="w-full sm:w-auto"
                 onClick={() => window.open('/cv-italo-cervantes.pdf', '_blank')}
               >
-                <Download size={20} />
+                <Download size={18} />
                 Descargar CV
               </Button>
-              <Button variant="neon" size="xl" onClick={scrollToAbout}>
+              <Button variant="neon" size="lg" className="w-full sm:w-auto" onClick={scrollToAbout}>
                 Conocer más
               </Button>
             </motion.div>
 
             {/* Social Links */}
             <motion.div
-              className="flex gap-4 justify-center lg:justify-start"
+              className="flex gap-3 sm:gap-4 justify-center lg:justify-start"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 1.1 }}
@@ -155,47 +188,15 @@ export const Hero = () => {
                   href={href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-3 rounded-full glass hover:bg-primary/20 transition-all duration-300 group"
+                  className="p-2.5 sm:p-3 rounded-full glass hover:bg-primary/20 transition-all duration-300 group"
                   whileHover={{ scale: 1.1, y: -2 }}
                   whileTap={{ scale: 0.95 }}
                   aria-label={label}
                 >
-                  <Icon size={22} className="text-muted-foreground group-hover:text-primary transition-colors" />
+                  <Icon size={20} className="text-muted-foreground group-hover:text-primary transition-colors sm:w-[22px] sm:h-[22px]" />
                 </motion.a>
               ))}
             </motion.div>
-          </motion.div>
-
-          {/* Profile Photo */}
-          <motion.div
-            className="flex-shrink-0"
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-          >
-            <div className="relative">
-              {/* Animated ring */}
-              <motion.div
-                className="absolute -inset-2 rounded-full bg-gradient-to-r from-primary via-accent to-primary opacity-75 blur-sm"
-                animate={{ rotate: 360 }}
-                transition={{ duration: 8, repeat: Infinity, ease: 'linear' }}
-              />
-              <div className="relative w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-background">
-                <img
-                  src={profilePhoto}
-                  alt="Italo Cervantes Prieto - Data Engineer & AI Specialist"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              {/* Floating badges */}
-              <motion.div
-                className="absolute -top-4 -right-4 px-4 py-2 glass rounded-full text-sm font-medium"
-                animate={{ y: [0, -10, 0] }}
-                transition={{ duration: 3, repeat: Infinity }}
-              >
-                🚀 Open to Work
-              </motion.div>
-            </div>
           </motion.div>
         </div>
 

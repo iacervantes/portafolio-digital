@@ -74,10 +74,10 @@ export const Header = () => {
         animate={{ y: 0 }}
         transition={{ duration: 0.5 }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          isScrolled ? 'glass py-3' : 'bg-transparent py-4 md:py-5'
+          isScrolled ? 'glass py-2 sm:py-3' : 'bg-transparent py-3 sm:py-4 md:py-5'
         }`}
       >
-        <div className="container mx-auto px-4 flex items-center justify-between">
+        <div className="container mx-auto px-4 sm:px-6 flex items-center justify-between">
           {/* Logo */}
           <motion.a
             href="#inicio"
@@ -85,7 +85,7 @@ export const Header = () => {
               e.preventDefault();
               handleNavClick('#inicio');
             }}
-            className="text-xl md:text-2xl font-display font-bold gradient-text z-50"
+            className="text-lg sm:text-xl md:text-2xl font-display font-bold gradient-text z-50"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
@@ -110,7 +110,7 @@ export const Header = () => {
           </nav>
 
           {/* Actions */}
-          <div className="flex items-center gap-2 md:gap-3">
+          <div className="flex items-center gap-1 sm:gap-2 md:gap-3">
             <motion.button
               onClick={toggleTheme}
               className="p-2 rounded-lg hover:bg-secondary transition-colors"
@@ -118,7 +118,7 @@ export const Header = () => {
               whileTap={{ scale: 0.9 }}
               aria-label="Cambiar tema"
             >
-              {isDark ? <Sun size={20} /> : <Moon size={20} />}
+              {isDark ? <Sun size={18} className="sm:w-5 sm:h-5" /> : <Moon size={18} className="sm:w-5 sm:h-5" />}
             </motion.button>
 
             <Button
@@ -133,13 +133,13 @@ export const Header = () => {
 
             {/* Mobile Menu Button */}
             <motion.button
-              className="lg:hidden p-2 rounded-lg hover:bg-secondary transition-colors z-50"
+              className="lg:hidden p-1.5 sm:p-2 rounded-lg hover:bg-secondary transition-colors z-50"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
               aria-label={isMobileMenuOpen ? 'Cerrar menú' : 'Abrir menú'}
             >
-              {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+              {isMobileMenuOpen ? <X size={22} className="sm:w-6 sm:h-6" /> : <Menu size={22} className="sm:w-6 sm:h-6" />}
             </motion.button>
           </div>
         </div>
