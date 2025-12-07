@@ -95,7 +95,7 @@ export const Contact = () => {
 
             <div className="space-y-4">
               <a
-                href="mailto:italo.cervantes@example.com"
+                href="mailto:italo.cervantesp@gmail.com"
                 className="flex items-center gap-4 p-4 glass rounded-xl hover:bg-secondary/50 transition-colors group"
               >
                 <div className="p-3 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors">
@@ -104,7 +104,7 @@ export const Contact = () => {
                 <div>
                   <p className="text-sm text-muted-foreground">Email</p>
                   <p className="font-medium group-hover:text-primary transition-colors">
-                    italo.cervantes@example.com
+                    italo.cervantesp@gmail.com
                   </p>
                 </div>
               </a>
@@ -135,8 +135,8 @@ export const Contact = () => {
               <p className="text-sm text-muted-foreground mb-4">Sígueme en redes</p>
               <div className="flex gap-3">
                 {[
-                  { icon: Linkedin, href: 'https://linkedin.com/in/italocervantes', label: 'LinkedIn' },
-                  { icon: Github, href: 'https://github.com/italocervantes', label: 'GitHub' },
+                  { icon: Linkedin, href: 'https://www.linkedin.com/in/italo-cervantes-prieto/', label: 'LinkedIn' },
+                  { icon: Github, href: 'https://github.com/icervantesp', label: 'GitHub' },
                 ].map(({ icon: Icon, href, label }) => (
                   <motion.a
                     key={label}

@@ -14,7 +14,7 @@ const projects = [
     image: 'https://images.unsplash.com/photo-1518186285589-2f7649de83e0?w=600&q=80',
     category: 'Data Engineering',
     tags: ['Databricks', 'Spark', 'Python', 'Delta Lake'],
-    github: 'https://github.com/italocervantes/databricks-etl',
+    github: 'https://github.com/icervantesp/databricks-etl',
     demo: null,
     stars: 45,
   },
@@ -25,7 +25,7 @@ const projects = [
     image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600&q=80',
     category: 'AI/ML',
     tags: ['LangChain', 'OpenAI', 'Pinecone', 'FastAPI'],
-    github: 'https://github.com/italocervantes/rag-chatbot',
+    github: 'https://github.com/icervantesp/rag-chatbot',
     demo: 'https://demo-chatbot.example.com',
     stars: 128,
   },
@@ -36,7 +36,7 @@ const projects = [
     image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&q=80',
     category: 'Dashboards',
     tags: ['Power BI', 'Azure', 'SQL', 'DAX'],
-    github: 'https://github.com/italocervantes/powerbi-dashboard',
+    github: 'https://github.com/icervantesp/powerbi-dashboard',
     demo: null,
     stars: 32,
   },
@@ -47,7 +47,7 @@ const projects = [
     image: 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=600&q=80',
     category: 'Automatización',
     tags: ['N8N', 'OpenAI', 'Webhooks', 'REST API'],
-    github: 'https://github.com/italocervantes/n8n-workflows',
+    github: 'https://github.com/icervantesp/n8n-workflows',
     demo: null,
     stars: 67,
   },
@@ -58,7 +58,7 @@ const projects = [
     image: 'https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=600&q=80',
     category: 'AI/ML',
     tags: ['AWS', 'SageMaker', 'Python', 'MLflow'],
-    github: 'https://github.com/italocervantes/aws-ml-pipeline',
+    github: 'https://github.com/icervantesp/aws-ml-pipeline',
     demo: null,
     stars: 89,
   },
@@ -69,7 +69,7 @@ const projects = [
     image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&q=80',
     category: 'Data Engineering',
     tags: ['Azure', 'Data Factory', 'Synapse', 'Purview'],
-    github: 'https://github.com/italocervantes/azure-datalake',
+    github: 'https://github.com/icervantesp/azure-datalake',
     demo: null,
     stars: 56,
   },
@@ -228,7 +228,7 @@ export const Projects = () => {
           <Button
             variant="neon"
             size="lg"
-            onClick={() => window.open('https://github.com/italocervantes', '_blank')}
+            onClick={() => window.open('https://github.com/icervantesp', '_blank')}
           >
             <Github size={20} />
             Ver más proyectos en GitHub

@@ -3,8 +3,8 @@ import { ArrowUp, Linkedin, Github, Mail, Heart, Coffee } from 'lucide-react';
 
 const socialLinks = [
   { icon: Linkedin, href: 'https://www.linkedin.com/in/italo-cervantes-prieto/', label: 'LinkedIn' },
-  { icon: Github, href: 'https://github.com/italocervantes', label: 'GitHub' },
-  { icon: Mail, href: 'mailto:italo.cervantes@example.com', label: 'Email' },
+  { icon: Github, href: 'https://github.com/icervantesp', label: 'GitHub' },
+  { icon: Mail, href: 'mailto:italo.cervantesp@gmail.com', label: 'Email' },
 ];
 
 const navLinks = [
