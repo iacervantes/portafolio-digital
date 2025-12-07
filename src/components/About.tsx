@@ -92,19 +92,17 @@ export const About = () => {
 
             <motion.div variants={itemVariants} className="space-y-4 text-muted-foreground mb-8">
               <p>
-                Soy un <strong className="text-foreground">Data Engineer & AI Engineer</strong> apasionado 
+                Soy un <strong className="text-foreground">Data Architect & AI Engineer</strong> apasionado 
                 por transformar datos en soluciones de negocio impactantes. Mi experiencia abarca 
-                el diseño e implementación de arquitecturas de datos escalables en la nube.
+                el diseño e implementación de arquitecturas de datos escalables con enfoque en <strong className="text-foreground">Data Governance</strong>.
               </p>
               <p>
-                Me especializo en construir pipelines de datos robustos, implementar soluciones de 
-                Machine Learning y desarrollar aplicaciones de IA generativa utilizando las últimas 
-                tecnologías como <strong className="text-foreground">LangChain, Databricks y servicios cloud de AWS, Azure y GCP</strong>.
+                Me especializo en definir estrategias de gobierno de datos, construir pipelines robustos e 
+                implementar soluciones de IA generativa utilizando tecnologías como <strong className="text-foreground">LangChain, Databricks y servicios cloud de AWS, Azure y GCP</strong>.
               </p>
               <p>
                 Mi enfoque combina la excelencia técnica con una visión estratégica del negocio, 
-                asegurando que cada solución no solo funcione, sino que genere valor real y medible 
-                para las organizaciones.
+                asegurando calidad, seguridad y cumplimiento normativo en cada solución de datos.
               </p>
             </motion.div>
 

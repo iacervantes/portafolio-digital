@@ -82,7 +82,7 @@ export const Hero = () => {
               ¡Bienvenido a mi portafolio!
             </motion.p>
 
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-6 leading-tight">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-4 md:mb-6 leading-tight">
               <TypeAnimation
                 sequence={[
                   'Hola, soy',
@@ -100,22 +100,22 @@ export const Hero = () => {
             </h1>
 
             <motion.h2
-              className="text-xl md:text-2xl lg:text-3xl gradient-text font-semibold mb-6"
+              className="text-lg sm:text-xl md:text-2xl lg:text-3xl gradient-text font-semibold mb-4 md:mb-6"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.5 }}
             >
-              Data Engineer | AI Engineer | Cloud Specialist
+              Data Architect | Data Governance | AI Engineer
             </motion.h2>
 
             <motion.p
-              className="text-lg text-muted-foreground mb-8 max-w-xl mx-auto lg:mx-0"
+              className="text-base md:text-lg text-muted-foreground mb-6 md:mb-8 max-w-xl mx-auto lg:mx-0"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.7 }}
             >
-              Transformo datos en decisiones estratégicas utilizando tecnologías
-              cloud y soluciones de IA de vanguardia.
+              Arquitecto de Datos especializado en Data Governance. Transformo datos en decisiones estratégicas 
+              utilizando tecnologías cloud y soluciones de IA de vanguardia.
             </motion.p>
 
             {/* CTA Buttons */}
@@ -146,9 +146,9 @@ export const Hero = () => {
               transition={{ delay: 1.1 }}
             >
               {[
-                { icon: Linkedin, href: 'https://linkedin.com/in/italocervantes', label: 'LinkedIn' },
+                { icon: Linkedin, href: 'https://www.linkedin.com/in/italo-cervantes-prieto/', label: 'LinkedIn' },
                 { icon: Github, href: 'https://github.com/italocervantes', label: 'GitHub' },
-                { icon: Mail, href: 'mailto:italo@example.com', label: 'Email' },
+                { icon: Mail, href: 'mailto:italo.cervantes@example.com', label: 'Email' },
               ].map(({ icon: Icon, href, label }) => (
                 <motion.a
                   key={label}
@@ -180,7 +180,7 @@ export const Hero = () => {
                 animate={{ rotate: 360 }}
                 transition={{ duration: 8, repeat: Infinity, ease: 'linear' }}
               />
-              <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-background">
+              <div className="relative w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-background">
                 <img
                   src={profilePhoto}
                   alt="Italo Cervantes Prieto - Data Engineer & AI Specialist"
