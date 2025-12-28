@@ -1,5 +1,7 @@
 # Portafolio Digital Profesional de Italo Cervantes Prieto
 
+Hoy comparto algo importante para mí: mi primer portafolio web profesional como Data Architect | Data Governance | AI Enginee
+
 # Welcome to your Lovable project
 
 ## Project info
