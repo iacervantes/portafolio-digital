@@ -53,7 +53,7 @@ Este es mi **primer portafolio web profesional**, un espacio donde iré document
 
 ---
 
-## 🖥️ Demo
+## 🎮 Demo
 
 <div align="center">
 
@@ -203,7 +203,7 @@ npm run dev
 
 ---
 
-## 🗺️ Roadmap
+## 🗺 Roadmap
 
 ### Fase 1: Fundamentos ✅
 
