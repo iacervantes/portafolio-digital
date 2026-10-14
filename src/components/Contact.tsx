@@ -95,7 +95,7 @@ export const Contact = () => {
 
             <div className="space-y-4">
               <a
-                href="mailto:italo.cervantesp@gmail.com"
+                href="mailto:ibakcloud@gmail.com"
                 className="flex items-center gap-4 p-4 glass rounded-xl hover:bg-secondary/50 transition-colors group"
               >
                 <div className="p-3 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors">
@@ -104,7 +104,7 @@ export const Contact = () => {
                 <div>
                   <p className="text-sm text-muted-foreground">Email</p>
                   <p className="font-medium group-hover:text-primary transition-colors">
-                    italo.cervantesp@gmail.com
+                    ibakcloud@gmail.com
                   </p>
                 </div>
               </a>
