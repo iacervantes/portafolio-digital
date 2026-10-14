@@ -4,7 +4,7 @@ import { ArrowUp, Linkedin, Github, Mail, Heart, Coffee } from 'lucide-react';
 const socialLinks = [
   { icon: Linkedin, href: 'https://www.linkedin.com/in/italo-cervantes-prieto/', label: 'LinkedIn' },
   { icon: Github, href: 'https://github.com/icervantesp', label: 'GitHub' },
-  { icon: Mail, href: 'mailto:italo.cervantesp@gmail.com', label: 'Email' },
+  { icon: Mail, href: 'mailto:ibakcloud@gmail.com', label: 'Email' },
 ];
 
 const navLinks = [
@@ -82,7 +82,7 @@ export const Footer = () => {
           <div>
             <h4 className="font-semibold mb-4">Contacto</h4>
             <div className="space-y-2 text-muted-foreground">
-              <p>italo.cervantes@example.com</p>
+              <p>ibakcloud@gmail.com</p>
               <p>Lima, Perú</p>
               <p className="text-green-500 font-medium">Disponible para proyectos</p>
             </div>
